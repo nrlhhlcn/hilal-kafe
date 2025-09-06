@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern ve şık tasarım için özel stiller */
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer components {
+  .modern-card {
+    @apply bg-white/90 backdrop-blur-md border border-white/30 shadow-xl hover:shadow-2xl transition-all duration-300 rounded-2xl overflow-hidden;
+  }
+  
+  .modern-button {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105;
+  }
+  
+  .modern-button-secondary {
+    @apply bg-gradient-to-r from-gray-100 to-gray-200 hover:from-gray-200 hover:to-gray-300 text-gray-800 font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .modern-button-danger {
+    @apply bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .modern-input {
+    @apply bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 shadow-sm;
+  }
+  
+  .modern-modal {
+    @apply bg-white/95 backdrop-blur-md border border-white/20 shadow-2xl rounded-3xl overflow-hidden;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50;
+  }
+  
+  .restaurant-bg {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.25), rgba(6, 182, 212, 0.25)),
+      url('https://theistanbulinsider.com/wp-content/uploads/2013/12/turkish-food-dishes.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  }
+  
+  .text-shadow-strong {
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+  }
+  
+  .text-shadow-extra {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Tüm hover efektlerini devre dışı bırak */
+  .group-hover\:opacity-100 {
+    opacity: 1 !important;
+  }
+  
+  .hover\:scale-105:hover {
+    transform: none !important;
+  }
+  
+  .hover\:scale-110:hover {
+    transform: none !important;
+  }
+  
+  .hover\:shadow-2xl:hover {
+    box-shadow: inherit !important;
+  }
+  
+  .hover\:shadow-xl:hover {
+    box-shadow: inherit !important;
+  }
+  
+  .hover\:bg-white\/20:hover {
+    background-color: inherit !important;
+  }
+  
+  .hover\:bg-white\/30:hover {
+    background-color: inherit !important;
+  }
+  
+  .hover\:bg-blue-50:hover {
+    background-color: inherit !important;
+  }
+  
+  .hover\:bg-red-50:hover {
+    background-color: inherit !important;
+  }
+  
+  .hover\:bg-red-600:hover {
+    background-color: inherit !important;
+  }
+}
