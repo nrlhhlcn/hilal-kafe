@@ -132,7 +132,7 @@ export function useMenuCategories() {
         const categoriesData = snapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data()
-        }));
+        })) as any[];
         console.log('Firebase real-time güncelleme:', categoriesData.map(c => ({ id: c.id, name: c.name, itemCount: c.items?.length || 0 })));
         setMenuCategories(categoriesData);
         setLoading(false);
@@ -331,7 +331,7 @@ export function useMenuCategories() {
       const categoriesData = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
-      }));
+      })) as any[];
       setMenuCategories(categoriesData);
       console.log('Kategoriler yenilendi:', categoriesData.map(c => ({ name: c.name, itemCount: c.items?.length || 0 })));
       
