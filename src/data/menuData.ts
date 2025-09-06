@@ -4,7 +4,7 @@ export const menuCategories: Category[] = [
   {
     id: 'pide',
     name: 'Pide',
-    image: '/hilal-kafe/hilal-kafe/pide.png',
+    image: '/hilal-kafe/pide.png',
     items: [
       { id: 'pide-1', name: 'Karışık Pide', category: 'Pide', price: 85, image: '/hilal-kafe/pide/karisik.png' },
       { id: 'pide-2', name: 'Kuşbaşılı Pide', category: 'Pide', price: 95, image: '/hilal-kafe/pide/kusbasili.png' },
