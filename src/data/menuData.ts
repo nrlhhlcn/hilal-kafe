@@ -1,7 +1,7 @@
 import { Category, Customer } from '../types';
 
 // Environment-based base path - Netlify için root path
-const basePath = '';
+const basePath = ''; // Force rebuild
 
 export const menuCategories: Category[] = [
   {
