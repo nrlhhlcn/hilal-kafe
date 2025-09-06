@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChefHat, ArrowLeft, Home, Users, Plus, ShoppingCart } from 'lucide-react';
+import { ChefHat, ArrowLeft, Home, Users, Plus, ShoppingCart, LogOut } from 'lucide-react';
 
 interface HeaderProps {
   currentView: 'customers' | 'categories' | 'items';
@@ -13,6 +13,7 @@ interface HeaderProps {
   onToggleCart?: () => void;
   cartItemCount?: number;
   showCartButton?: boolean;
+  onLogout?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -26,7 +27,8 @@ export const Header: React.FC<HeaderProps> = ({
   addButtonText = "Ekle",
   onToggleCart,
   cartItemCount = 0,
-  showCartButton = false
+  showCartButton = false,
+  onLogout
 }) => {
   return (
     <header className="sticky top-0 z-50 bg-gradient-to-r from-blue-600 to-cyan-700 text-white shadow-lg">
@@ -87,6 +89,16 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Home className="w-5 h-5" />
             </button>
+            
+            {onLogout && (
+              <button 
+                onClick={onLogout}
+                className="p-2 hover:bg-white/20 rounded-full transition-colors"
+                title="Çıkış Yap"
+              >
+                <LogOut className="w-5 h-5" />
+              </button>
+            )}
           </div>
         </div>
       </div>

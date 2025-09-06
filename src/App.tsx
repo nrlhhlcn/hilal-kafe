@@ -13,6 +13,7 @@ import { AddCustomerModal } from './components/AddCustomerModal';
 import { AddMenuItemModal } from './components/AddMenuItemModal';
 import { OrderHistoryModal } from './components/OrderHistoryModal';
 import { DeleteConfirmModal } from './components/DeleteConfirmModal';
+import { LoginModal } from './components/LoginModal';
 
 type View = 'customers' | 'categories' | 'items';
 
@@ -50,6 +51,10 @@ function App() {
     message: string;
     type: 'success' | 'error';
   }>({ show: false, message: '', type: 'success' });
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem('hilalKafeAuth') === 'true';
+  });
+  const [showLogin, setShowLogin] = useState(false);
 
   // Firebase'e veri yükle (sadece ilk kez)
   useEffect(() => {
@@ -319,6 +324,19 @@ function App() {
     }
   };
 
+  const handleLogin = (password: string) => {
+    localStorage.setItem('hilalKafeAuth', 'true');
+    setIsLoggedIn(true);
+    setShowLogin(false);
+    setToast({ show: true, message: 'Giriş başarılı!', type: 'success' });
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('hilalKafeAuth');
+    setIsLoggedIn(false);
+    setToast({ show: true, message: 'Çıkış yapıldı!', type: 'success' });
+  };
+
   const confirmDelete = async () => {
     if (!deleteModalData) return;
 
@@ -377,6 +395,28 @@ function App() {
     );
   }
 
+  // Giriş kontrolü
+  if (!isLoggedIn) {
+    return (
+      <div className="min-h-screen restaurant-bg flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold text-white mb-8 text-shadow">Hilal Kafe</h1>
+          <button
+            onClick={() => setShowLogin(true)}
+            className="modern-button text-xl px-8 py-4"
+          >
+            Giriş Yap
+          </button>
+        </div>
+        <LoginModal
+          isOpen={showLogin}
+          onClose={() => setShowLogin(false)}
+          onLogin={handleLogin}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen restaurant-bg">
       <Header 
@@ -391,6 +431,7 @@ function App() {
         onToggleCart={toggleCart}
         cartItemCount={cart.length}
         showCartButton={(currentView === 'items' && selectedCategory !== null) || (currentView === 'categories' && selectedCustomer !== null)}
+        onLogout={handleLogout}
       />
 
       <main className="container mx-auto px-4 py-8">
