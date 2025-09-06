@@ -25,7 +25,7 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart, o
 
   return (
     <div className="modern-card overflow-hidden group">
-      <div className="h-32 md:h-48 overflow-hidden relative bg-gray-200 flex items-center justify-center">
+      <div className="h-40 sm:h-48 md:h-52 overflow-hidden relative bg-gray-200 flex items-center justify-center">
         {item.image && item.image.trim() !== '' ? (
           <img 
             src={item.image} 
@@ -48,34 +48,34 @@ export const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, onAddToCart, o
           </button>
         )}
       </div>
-      <div className="p-4 bg-white">
-        <h3 className="text-sm md:text-lg font-bold text-gray-900 mb-2 capitalize">{item.name}</h3>
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-lg md:text-2xl font-bold text-blue-600">₺{item.price}</span>
+      <div className="p-3 sm:p-4 bg-white">
+        <h3 className="text-base sm:text-lg font-bold text-gray-900 mb-2 capitalize line-clamp-2">{item.name}</h3>
+        <div className="flex items-center justify-between mb-3 sm:mb-4">
+          <span className="text-xl sm:text-2xl font-bold text-blue-600">₺{item.price}</span>
         </div>
         
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-2 bg-gray-100 rounded-lg p-2">
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center space-x-1 sm:space-x-2 bg-gray-100 rounded-lg p-1.5 sm:p-2">
             <button 
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="p-1 hover:bg-white rounded-full transition-colors"
+              className="p-1.5 sm:p-2 hover:bg-white rounded-full transition-colors touch-manipulation"
             >
-              <Minus className="w-4 h-4 text-gray-600" />
+              <Minus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
             </button>
-            <span className="font-bold min-w-[2rem] text-center text-gray-800">{quantity}</span>
+            <span className="font-bold min-w-[2rem] text-center text-gray-800 text-sm sm:text-base">{quantity}</span>
             <button 
               onClick={() => setQuantity(quantity + 1)}
-              className="p-1 hover:bg-white rounded-full transition-colors"
+              className="p-1.5 sm:p-2 hover:bg-white rounded-full transition-colors touch-manipulation"
             >
-              <Plus className="w-4 h-4 text-gray-600" />
+              <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-gray-600" />
             </button>
           </div>
           
           <button 
             onClick={handleAddToCart}
-            className="modern-button flex items-center space-x-1 md:space-x-2 text-xs md:text-sm"
+            className="modern-button flex items-center space-x-1 sm:space-x-2 text-sm sm:text-base px-3 sm:px-4 py-2 sm:py-3 min-w-[80px] sm:min-w-[100px] justify-center"
           >
-            <ShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
+            <ShoppingCart className="w-4 h-4 sm:w-5 sm:h-5" />
             <span className="font-semibold">Ekle</span>
           </button>
         </div>
