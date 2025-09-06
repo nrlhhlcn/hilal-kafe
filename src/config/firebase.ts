@@ -3,12 +3,12 @@ import { getFirestore } from 'firebase/firestore';
 
 // Firebase yapılandırması
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyCt91i_ci2ZZYXiSnBMgsTSeGgxHgLEyp0",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "hila-kafe.firebaseapp.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "hila-kafe",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "hila-kafe.firebasestorage.app",
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "421803462143",
+  appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:421803462143:web:070d679534a42e28702bca"
 };
 
 // Debug: Environment variable'ları kontrol et
