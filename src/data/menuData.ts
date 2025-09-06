@@ -1,7 +1,7 @@
 import { Category, Customer } from '../types';
 
-// Environment-based base path
-const basePath = import.meta.env.PROD ? '/hilal-kafe' : '';
+// Environment-based base path - Netlify için root path
+const basePath = '';
 
 export const menuCategories: Category[] = [
   {
